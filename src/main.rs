@@ -35,6 +35,15 @@ fn input_string() -> String {
     let input = input_string.trim();
     input.to_string()
 }
+fn remove_special_characters_in_string(s: &str) -> String {
+    let mut s2 = String::new();
+    for c in s.chars() {
+        if c.is_alphabetic() || c.is_numeric() {
+            s2.push(c);
+        }
+    }
+    s2
+}
 fn main() {
 
     let arr: [i32; 7] = [1, 2, 3, 4, 5, 6, 7];
@@ -51,6 +60,12 @@ fn main() {
     let s1 = compare_sub_string(s, input);
     println!("Tu {} xuat hien {}", s1.0, s1.1);
     println!("*****************");
+    println!("chi lay chu va so loai bo het ky tu dac biet trong chuoi");
+    let s = "{\"name\":\"xx/yyyy/machine/zzz/test_int4\",\"status\":\"online\",\"timestamp\":\"2021-06-11 18:20:42.231770800~! & #$%^&*() UTC\",\"value\":7}8668982856274}";
+
+   let result = remove_special_characters_in_string(s);
+   println!("{}", result);
+   
     
 
 }
